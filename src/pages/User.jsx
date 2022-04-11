@@ -3,17 +3,23 @@ import { useParams, Link } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa'
 import GithubContext from '../context/github/GithubContext'
+import { getUserAndRepos } from '../context/github/GithubActions'
 import RepoList from '../components/users/repos/RepoList'
 
 function User({ match }) {
-  const { getUser, getUserRepos, user, repos, loading } = useContext(GithubContext)
+  const { user, repos, dispatch, loading } = useContext(GithubContext)
 
   const params = useParams()
 
   useEffect(() => {
-    getUser(params.login)
-    getUserRepos(params.login)
-  }, [])
+    dispatch({type: 'SET_LOADING'})
+    const getUserData = async () => {
+      const userData = await getUserAndRepos(params.login)
+      dispatch({type: 'GET_USER_AND_REPOS', payload: userData})
+    }
+
+    getUserData()
+  }, [dispatch, params.login])
 
   const {
     name,

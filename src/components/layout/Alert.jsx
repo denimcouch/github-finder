@@ -8,8 +8,10 @@ function Alert() {
   return (
     alert && (
       <div className='alert alert-md alert-error shadow-md justify-start mb-4'>
-        <FaExclamationCircle size={30} />
-        <span>{alert.msg}</span>
+        <FaExclamationCircle size={30} color='white' />
+        <span className='flex-1 text-base font-semibold leading-7 text-white'>
+          <strong>{alert.msg}</strong>
+        </span>
       </div>
     )
   )

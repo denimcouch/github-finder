@@ -91,6 +91,7 @@ function User({ match }) {
             </div>
           </div>
           <div className='w-full rounded-lg shadow-md bg-base-100 stats'>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
             {location && (
               <div className='stat'>
                 <div className='stat-title text-md'>Location</div>
@@ -121,11 +122,13 @@ function User({ match }) {
                 </div>
               </div>
             )}
+            </div>
           </div>
         </div>
         <div className='col-span-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats'>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
           <div className='stat'>
-            <div className='stat-figure text-secondary'>
+            <div className='stat-figure text-accent'>
               <FaUsers className='text-3xl md:text-5xl' />
             </div>
             <div className='stat-title pr-5'>Followers</div>
@@ -134,7 +137,7 @@ function User({ match }) {
             </div>
           </div>
           <div className='stat'>
-            <div className='stat-figure text-secondary'>
+            <div className='stat-figure text-accent'>
               <FaUserFriends className='text-3xl md:text-5xl' />
             </div>
             <div className='stat-title pr-5'>Following</div>
@@ -143,7 +146,7 @@ function User({ match }) {
             </div>
           </div>
           <div className='stat'>
-            <div className='stat-figure text-secondary'>
+            <div className='stat-figure text-accent'>
               <FaCodepen className='text-3xl md:text-5xl' />
             </div>
             <div className='stat-title pr-5'>Public Repos</div>
@@ -152,13 +155,14 @@ function User({ match }) {
             </div>
           </div>
           <div className='stat'>
-            <div className='stat-figure text-secondary'>
+            <div className='stat-figure text-accent'>
               <FaStore className='text-3xl md:text-5xl' />
             </div>
             <div className='stat-title pr-5'>Public Gists</div>
             <div className='stat-value pr-5 text-3xl md:text-4xl'>
               {public_gists}
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -1,25 +1,14 @@
 import { CircularProgress } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { useEffect, useContext } from 'react'
 import UserItem from './UserItem'
+import GithubContext from '../../context/github/GithubContext'
 
 function UserList() {
-  const [loading, setLoading] = useState(true)
-  const [users, setUsers] = useState([])
+  const {fetchUsers, users, loading} = useContext(GithubContext)
 
   useEffect(() => {
     fetchUsers()
   }, [])
-
-  const fetchUsers = async () => {
-    const res = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users`, {
-      Headers: {
-        Authorization: `token ${import.meta.env.VITE_GITHUB_ACCESS_TOKEN}`,
-      },
-    })
-    const data = await res.json()
-    setUsers(data)
-    setLoading(false)
-  }
 
   if (loading) {
     return (

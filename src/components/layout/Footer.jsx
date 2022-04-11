@@ -4,9 +4,9 @@ function Footer() {
   const footerYear = new Date().getFullYear()
 
   return (
-    <footer className="footer p-4 bg-gray-700 text-base-content footer-center">
+    <footer className='footer p-4 bg-gray-700 text-base-content footer-center'>
       <div>
-      <svg
+        <svg
           width='50'
           height='50'
           viewBox='0 0 24 24'

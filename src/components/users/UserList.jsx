@@ -1,14 +1,10 @@
 import { CircularProgress } from '@mui/material'
-import { useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import UserItem from './UserItem'
 import GithubContext from '../../context/github/GithubContext'
 
 function UserList() {
-  const {fetchUsers, users, loading} = useContext(GithubContext)
-
-  useEffect(() => {
-    fetchUsers()
-  }, [])
+  const { users, loading } = useContext(GithubContext)
 
   if (loading) {
     return (
